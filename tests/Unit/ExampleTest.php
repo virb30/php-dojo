@@ -11,7 +11,14 @@ class ExampleTest extends TestCase
   public function testExampleClassShouldReturnTrue()
   {
     $example = new Example(true);
-    
+
     $this->assertTrue($example->execute());
+  }
+
+  public function testExampleClassShouldReturnFalse()
+  {
+    $example = new Example(true);
+
+    $this->assertFalse(false);
   }
 }

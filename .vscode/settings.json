@@ -2,10 +2,13 @@
     "phpunit.relativeFilePath": true,
     "phpunit.files": "{test,tests,Test,Tests}/**/*Test.php",
     "phpunit.phpunit": "/var/www/html/vendor/bin/phpunit",
-    "phpunit.php": "/usr/bin/docker-compose exec -T --user ${UID}:${GID} php php",
+    "phpunit.php": "/usr/bin/docker exec -t --user ${UID}:${GID} php-dojo_php_1 php",
     "phpunit.shell": "/bin/zsh",
     "phpunit.remoteCwd": "/var/www/html",
     "phpunit.args": [
         "-c /var/www/html/phpunit.xml"
-    ]
+    ],
+    "phpunit.clearOutputOnRun": true,
+    "phpunit.trace.server": "off",
+    "phpunit.maxNumberOfProblems": 0
 }
