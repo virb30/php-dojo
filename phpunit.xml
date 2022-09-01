@@ -24,5 +24,8 @@
         <include>
             <directory suffix=".php">./src</directory>
         </include>
+        <report>
+            <html outputDirectory="tests/coverage"></html>
+        </report>
     </coverage>
 </phpunit>
