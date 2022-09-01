@@ -19,7 +19,7 @@ while [ $# -gt 0 ]; do
 done
 
 if [ $coverage = 1 ]; then
-  docker exec -it -e "TERM=xterm-256color" -e "XDEBUG_MODE=coverage" php-dojo_php_1 php ./vendor/bin/phpunit $args
+  docker exec -it -e "TERM=xterm-256color" -e "XDEBUG_MODE=coverage" dojo_php_1 php ./vendor/bin/phpunit "${args[@]}"
 else
-  docker exec -it -e "TERM=xterm-256color" -e "XDEBUG_MODE=coverage" php-dojo_php_1 php ./vendor/bin/phpunit --no-coverage $args
+  docker exec -it -e "TERM=xterm-256color" -e "XDEBUG_MODE=coverage" dojo_php_1 php ./vendor/bin/phpunit --no-coverage "${args[@]}"
 fi

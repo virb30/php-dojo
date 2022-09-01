@@ -77,9 +77,24 @@ docker-compose exec php php ./vendor/bin/phpunit
 # to specify a test file
 docker-compose exec php php ./vendor/bin/phpunit path/to/FileTest.php
 
-# alternativelly you can use the Makefile command
+# alternativelly you can use the Makefile command OR the run-tests.sh 
 
 make test
 # or
 make test /path/to/FileTest.php
+
+./run-tests.sh /path/to/FileTest.php
+```
+
+#### Configure run-tests
+
+Replace the container name on run-tests.sh script:
+
+```bash
+
+if [ $coverage = 1 ]; then
+  docker exec -it -e "TERM=xterm-256color" -e "XDEBUG_MODE=coverage" [your_container_name] php ./vendor/bin/phpunit $args
+else
+  docker exec -it -e "TERM=xterm-256color" -e "XDEBUG_MODE=coverage" [your_container_name] php ./vendor/bin/phpunit --no-coverage $args
+fi
 ```
